@@ -1,0 +1,33 @@
+
+M 50 100
+M 750 600
+M 750 500
+M 753 314
+M 585 500
+M 950 500
+M 303 500
+
+C 255 255 255
+C 0 0 0
+C 255 153 51
+C 255 0 0
+C 51 153 255
+C 255 255 102
+C 204 102 255
+C 51 153 51
+
+D 0 0 0 70 35 1
+D 7 1 2 60 60 0
+D 3 3 0 20 20 0
+D 0 3 3 20 20 0
+D 4 4 0 60 60 0
+D 7 7 0 60 60 0
+D 6 1 2 60 60 0
+
+V
+V0a50t0d1M1m@You have a client@1a50t1d2M6m@Client@
+V0a50t0d1M1m@You also have some servers@1a50t1d6M6m@@2a50t4d2M4m@Server@3a50t4d2M3m@Server@4a50t4d2M5m@Server@
+V0a50t0d1M1m@The client sends some data to the server@1a50t1d6M6m@@2a50t4d3M3m@Server@3a50t4d4M4m@Server@4a50t4d5M5m@Server@6a50t2d6M4m@@
+V0a50t0d1M1m@Data replicated@1a50t1d6M6m@@3a50t2d4M3m@@4a50t4d3M3m@@6a50t2d4M5m@@7a50t4d5M5m@@10a50t4d4M4m@@
+V0a50t0d1M1m@TEST @
+V0a50t1M@THE END@
