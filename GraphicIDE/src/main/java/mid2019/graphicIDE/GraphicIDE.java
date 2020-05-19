@@ -25,25 +25,25 @@ public class GraphicIDE extends Window {
   }
 
   public void mousePressed(MouseEvent me){
-
+    for(int i = 0; i < wList.size(); i++){
+      if(around(me.getPoint(), wList.get(i))){
+        sW = wList.get(i);
+      }
+    }
   }
-  private boolean around(Point a, Point b){
-    return Math.pow(a.x-b.x, 2) + Math.pow(a.y-b.y, 2) < 300;
+  private boolean around(Point a, Word w){
+    System.out.println(w.pixWidth + " " + w.pixHeight);
+    System.out.println(a.y + " " + w.loc.y);
+    return Math.pow(a.x-w.pixWidth/2-w.loc.x, 2) + Math.pow(a.y+w.pixHeight/2-w.loc.y, 2) < 200;
   }
 
   public void mouseDragged(MouseEvent me){
-    for(int i = 0; i < wList.size(); i++){
-      if(around(me.getPoint(), wList.get(i).loc)){
-        sW = wList.get(i);
-        System.out.println(sW.loc.x);
-      }
-    }
-    sW.loc = me.getPoint();
+    sW.loc = new Point((int)(me.getX() - sW.pixWidth/2), (int)(me.getY() + sW.pixHeight/2));
     repaint();
   }
 
   public void mouseReleased(MouseEvent me){
-
+    sW = null;
   }
   public static void main(String args[]){
     PANEL = new GraphicIDE();launch();

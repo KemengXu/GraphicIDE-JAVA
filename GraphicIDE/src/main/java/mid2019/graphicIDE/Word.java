@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import mid2019.anime.Actor;
 import mid2019.graphicsLib.G.XY;
@@ -15,6 +16,8 @@ public class Word {
   public Point loc;
   public Font font;
   public boolean v; //visibility
+  public double pixWidth;
+  public double pixHeight;
 
   public Word(String text, Color color, Point loc, int fStyle, int fSize) {
     this.v = true;
@@ -24,6 +27,9 @@ public class Word {
     this.font = new Font("Helvetica", fStyle, fSize);
   }
   private void show(Graphics g) {
+    Rectangle2D r = g.getFontMetrics().getStringBounds(text, g);
+    pixWidth = r.getWidth();
+    pixHeight = r.getHeight();
     g.setColor(color);
     g.setFont(font);
     g.drawString(text, loc.x, loc.y);
