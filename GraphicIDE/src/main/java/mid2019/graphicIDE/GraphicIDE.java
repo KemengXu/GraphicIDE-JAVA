@@ -10,14 +10,17 @@ import mid2019.graphicsLib.G;
 import mid2019.graphicsLib.Window;
 
 public class GraphicIDE extends Window {
+  public static final int mainWindowWidth = 1300;
+  public static final int mainWindowHeight = 900;
+
   public static WList wList = new WList();
   static {
-    wList.add(new Word("Dude", new Color(200, 0, 0), new Point(200, 200), 0, 20));
-    wList.add(new Word("Hi there", new Color(0, 200, 0), new Point(400, 300), 0, 30));
+    wList.add(new Word("Dude", new Color(200, 0, 0), new Point(200, 200), "Helvetica", 0, 20));
+    wList.add(new Word("Hi there", new Color(0, 200, 0), new Point(400, 300), "Helvetica", 0, 30));
   }
   public static Word sW;  // selected word
   public GraphicIDE() {
-    super("GraphicIDE", 1300, 900);
+    super("GraphicIDE", mainWindowWidth, mainWindowHeight);
   }
   public void paintComponent(Graphics g){
     G.fillBackground(g, Color.white);
@@ -32,13 +35,15 @@ public class GraphicIDE extends Window {
     }
   }
   private boolean around(Point a, Word w){
-    System.out.println(w.pixWidth + " " + w.pixHeight);
-    System.out.println(a.y + " " + w.loc.y);
-    return Math.pow(a.x-w.pixWidth/2-w.loc.x, 2) + Math.pow(a.y+w.pixHeight/2-w.loc.y, 2) < 200;
+//    System.out.println(w.pixWidth + " " + w.pixHeight);
+//    System.out.println(a.y + " " + w.loc.y);
+    return Math.pow(a.x - w.pixWidth / 2 - w.loc.x, 2) + Math.pow(a.y + w.pixHeight / 2 - w.loc.y, 2) < Math.pow(Math.max(w.pixHeight, w.pixWidth), 2);
   }
 
   public void mouseDragged(MouseEvent me){
-    sW.loc = new Point((int)(me.getX() - sW.pixWidth/2), (int)(me.getY() + sW.pixHeight/2));
+    if (sW != null) {
+      sW.loc = new Point((int) (me.getX() - sW.pixWidth / 2), (int) (me.getY() + sW.pixHeight / 2));
+    }
     repaint();
   }
 

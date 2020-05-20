@@ -65,8 +65,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Parser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sandbox.Parser" />
+      <module name="GraphicIDE.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sandbox.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Parser" />
         <item itemvalue="Application.GraphicIDE" />
         <item itemvalue="Application.Anime" />
         <item itemvalue="Application.Main" />
@@ -95,7 +109,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589838778815</updated>
-      <workItem from="1589838783364" duration="9373000" />
+      <workItem from="1589838783364" duration="14680000" />
+      <workItem from="1589914562865" duration="17957000" />
     </task>
     <servers />
   </component>
@@ -111,26 +126,34 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1589840820478" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1589848096393">
+    <state width="1237" height="180" key="GridCell.Tab.0.bottom" timestamp="1589964985062">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589848096393" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1589848096392">
+    <state width="1237" height="180" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589964985062" />
+    <state width="1237" height="180" key="GridCell.Tab.0.center" timestamp="1589964985062">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1589848096392" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1589848096392">
+    <state width="1237" height="180" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1589964985062" />
+    <state width="1237" height="180" key="GridCell.Tab.0.left" timestamp="1589964985062">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1589848096392" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1589848096392">
+    <state width="1237" height="180" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1589964985062" />
+    <state width="1237" height="180" key="GridCell.Tab.0.right" timestamp="1589964985062">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1589848096392" />
+    <state width="1237" height="180" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1589964985062" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1589845337738">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1589845337738" />
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1589914561814">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="325" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1589914561814" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1589960614186">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1589960614186" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1589845416226">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
