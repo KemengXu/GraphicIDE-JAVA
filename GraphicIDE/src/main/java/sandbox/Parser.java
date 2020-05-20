@@ -81,16 +81,17 @@ public class Parser {
   }
   public static void main(String[] args) throws IOException {
     //System.out.println(args[0]);
-    String srcPath = "E:" + File.separator + "NEU" + File.separator + "courses" + File.separator + "MidJava" + File.separator + "GraphicIDE" + File.separator + "src";
+//    String srcPath = "E:" + File.separator + "NEU" + File.separator + "courses" + File.separator + "MidJava" + File.separator + "GraphicIDE" + File.separator + "src";
+    String srcPath = "E:\\NEU\\courses\\5004\\assignments\\Student_repo_Kemeng_Xu\\HW4\\src";
     displayIt(new File(srcPath), srcPath.length());
     for (String key: layers.keySet()){
-//      System.out.println(key + "->" + layers.get(key));
+      System.out.println(key + "->" + layers.get(key));
       if(key.length() > 5 && key.substring(key.length()-5).equals(".java")){
-        System.out.println(key + "{");
+//        System.out.println(key + "{");
         for(String fileName: layers.get(key)) {
-          fileParser(fileName);
+//          fileParser(fileName);
         }
-        System.out.println("}");
+//        System.out.println("}");
       }
     }
 
