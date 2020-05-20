@@ -77,15 +77,15 @@ public class GraphicIDE extends Window {
   }
 
   public void mousePressed(MouseEvent me){
-    for(int i = 0; i < wList.size(); i++){
-      if(around(me.getPoint(), wList.get(i))){
-        sW = wList.get(i);
+    if(xOffset == 0 && yOffset == 0) {
+      for (int i = 0; i < wList.size(); i++) {
+        if (around(me.getPoint(), wList.get(i))) {
+          sW = wList.get(i);
+        }
       }
     }
-    if (sW == null){
-      released = false;
-      startPoint = MouseInfo.getPointerInfo().getLocation();
-    }
+    released = false;
+    startPoint = MouseInfo.getPointerInfo().getLocation();
   }
   private boolean around(Point a, Word w){
 //    System.out.println(w.pixWidth + " " + w.pixHeight);
@@ -124,6 +124,14 @@ public class GraphicIDE extends Window {
     if (e.getWheelRotation() > 0) {
       zoomFactor /= 1.1;
       repaint();
+    }
+  }
+
+  public void mouseClicked(MouseEvent event)
+  {
+    if (event.getClickCount() == 2) {
+      xOffset = 0;
+      yOffset = 0;
     }
   }
 
