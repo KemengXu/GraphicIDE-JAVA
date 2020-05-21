@@ -35,9 +35,11 @@ public class Screen extends Window {
   public static Word root = getTree(layers), sW = root;
   static {
     //List<List<String>> levels = root.printTree();
-    System.out.println(sW.children.size());
+    int i = 0;
     for (Word word : sW.children.values()) {
-      System.out.println(word.content);
+      // System.out.println("content: " + word.content);
+      word.loc.y += 50 * i;
+      i++;
       wList.add(word);
     }
   }
@@ -62,7 +64,7 @@ public class Screen extends Window {
         cur = cur.children.get(lvls[i]);
       }
     }
-    return root;
+    return root.children.get("");
   }
 
 
