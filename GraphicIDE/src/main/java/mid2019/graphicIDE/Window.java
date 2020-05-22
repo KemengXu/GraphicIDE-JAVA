@@ -56,6 +56,7 @@ public class Window extends JPanel
     // add in the listeners first
     PANEL.addMouseListener(PANEL); // mouseListeners added to panel
     PANEL.addMouseMotionListener(PANEL);
+    PANEL.addMouseWheelListener(PANEL);
 
     SwingUtilities.invokeLater(
         new Runnable() {

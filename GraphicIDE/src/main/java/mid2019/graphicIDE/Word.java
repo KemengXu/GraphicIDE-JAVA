@@ -5,11 +5,12 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import mid2019.anime.Actor;
-import mid2019.graphicsLib.G.XY;
 
 public class Word {
   public static Map<String, int[]> colors = new HashMap<>();
@@ -31,33 +32,78 @@ public class Word {
     colors.put("lightYellow", new int[]{230, 219, 116});
     colors.put("lightPurple", new int[]{174, 129, 255});
   }
-  public String text;
+
   public Color color;
-  public Point loc;
+
+  public String fontName;
+  public int fontStyle;
+  public int fontSize;
   public Font font;
+
+  public String content;
+  public Word parent;
+  public Map<String, Word> children;
+
+  public Point loc;
+
   public boolean v; //visibility
+
   public double pixWidth;
   public double pixHeight;
 
-  public Word(String text, Color color, Point loc, String fName, int fStyle, int fSize) {
-    this.v = true;
-    this.text = text;
+  public Word(Color color, String fName, int fStyle, int fSize, String content, Point loc, Word parent) {
     this.color = color;
-    this.loc = loc;
     this.font = new Font(fName, fStyle, fSize);
+    this.content = content;
+    this.loc = loc;
+    this.v = true;
+    this.parent = parent;
+    this.children = new HashMap<>();
   }
+
   private void show(Graphics g) {
-    Rectangle2D r = g.getFontMetrics().getStringBounds(text, g);
-    pixWidth = r.getWidth();
-    pixHeight = r.getHeight();
+    Rectangle2D r = g.getFontMetrics().getStringBounds(content, g);
+    this.pixWidth = r.getWidth();
+    this.pixHeight = r.getHeight();
     g.setColor(color);
     g.setFont(font);
-    g.drawString(text, loc.x, loc.y);
+    g.drawString(content, loc.x, loc.y);
   }
 
   public void moveTo(int x, int y){ loc.x = x; loc.y = y; }
 
-  public static class WList extends ArrayList<Word>{
+  public List<List<String>> printTree() {
+    Word cur = this;
+    List<List<String>> res = new ArrayList<>();
+    Deque<Word> queue = new ArrayDeque<>();
+    queue.offer(cur);
+    while (!queue.isEmpty()) {
+      int curLvl = queue.size();
+      List<String> list = new ArrayList<>();
+      for (int i = 0; i < curLvl; i++) {
+        Word n = queue.poll();
+        if (n.content.length() > 0) {
+          list.add(n.content);
+        }
+        queue.addAll(n.children.values());
+      }
+      if (list.size() > 0) {
+        res.add(list);
+      }
+    }
+    for (int i = 0; i < res.size(); i++) {
+      System.out.print("current level: " + i + ", contents: ");
+      for (int j = 0; j < res.get(i).size(); j++) {
+        System.out.print(res.get(i).get(j) + ", ");
+      }
+      System.out.println();
+    }
+    return res;
+  }
+
+
+  //--------------------------WordList-------------------------
+  public static class WList extends ArrayList<Word> {
     public void show(Graphics g){for(Word w:this){if(w.v){w.show(g);}}}
   }
 
