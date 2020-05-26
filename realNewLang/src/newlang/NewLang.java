@@ -28,6 +28,8 @@ public class NewLang extends Window implements MouseWheelListener{
   public static int dragX, dragY, dragThresh = 50;
   public static Word.List words = new Word.List();
   public static KeyLogic keyLogic = new KeyLogic();
+  public static SC theSC = new SC();
+  
   
   public NewLang(){
     super("NewLang", 1650, 1000);
@@ -43,14 +45,14 @@ public class NewLang extends Window implements MouseWheelListener{
 
   public void mousePressed(MouseEvent me){
     int dragX = me.getX(), dragY = me.getY();
-    dragWord = words.hit(dragX, dragY);
+    dragWord = words.wordHit(dragX, dragY);
     if(dragWord == null && dragX <50 && dragY<50){
       saveAll(); System.out.println("Saved?");
     }
   }
   
   public void mouseReleased(MouseEvent me){
-    Word w = words.hit(me.getX(), me.getY());
+    Word w = words.wordHit(me.getX(), me.getY());
     if(dragWord != null && !dragging){dragWord.doit();}
     dragging = false;
     dragWord = null;
@@ -77,6 +79,7 @@ public class NewLang extends Window implements MouseWheelListener{
     Pic.PIC.show(g);
     g.setColor(CHILL); g.fillRect(0, 0, 3000, 3000);
     words.show(g);
+    theSC.show(g);
   }
 
   @Override
@@ -142,7 +145,7 @@ public class NewLang extends Window implements MouseWheelListener{
       switch(lineType){
         case '#': 
           Word w = new Word("#"+theLine); 
-          w.loc.setXY(curX, curX); w.color = JmpColor;
+          w.loc.setXY(curX, curX); w.sty.color = JmpColor;
           w.behavior = new Loc.View(Loc.curView);
           words.add(w);
           break;
